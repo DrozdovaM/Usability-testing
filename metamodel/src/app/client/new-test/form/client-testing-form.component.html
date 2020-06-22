@@ -1,0 +1,129 @@
+<div>
+    <form>
+        <div *ngIf="pageNumber === 1">
+            <p>1. Url</p>
+
+            <div class="form-group animated zoomIn">
+                <span>https://</span>
+                <input [(ngModel)]="questions.url" name="url" class="form-field" placeholder="domain.tld"/>
+            </div>
+
+            <br>
+            <br>
+            <p>2. Тип веб-страницы</p>
+
+            <div class="select2 animated zoomIn">
+            
+                <label>
+                    <input type="checkbox" name="placeholder" required>
+                    <i class="toggle icon icon-plus"></i>
+                    <i class="toggle icon icon-minus"></i>
+                    <span class="placeholder">Choose...</span>
+                    <label class="option">
+                        <input type="radio" name="option" value="info" (change)="fieldSelect($event)">
+                        <span class="title animated fadeIn"><i class="icon icon-info"></i>Информационный</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="option" value="shop" (change)="fieldSelect($event)">
+                        <span class="title animated fadeIn"><i class="icon icon-handbag"></i>Магазин</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="option" value="blog" (change)="fieldSelect($event)">
+                        <span class="title animated fadeIn"><i class="icon icon-star"></i>Блог</span>
+                    </label>
+                </label>
+            </div>
+            <br>
+            <br>
+
+            <p>3. Есть возможность поиска по веб-странице?</p>
+            <ul>
+                <li>
+                    <input checked type="radio" name="search" [value]="true" (change)="fieldSelect($event)">
+                    <label class="radio-icon">Да</label>
+                    <div class="bullet">
+
+                    </div>
+                </li>
+                <li>
+                    <input type="radio" name="search" [value]="false" (change)="fieldSelect($event)">
+                    <label class="radio-icon">Нет</label>
+                    <div class="bullet">
+                    </div>
+                </li>
+            </ul>
+
+            <br>
+            <br>
+            <br>
+                <button class="Further" (click)="continue(2)">Далее</button>
+        </div>
+    <div *ngIf="pageNumber === 2">
+        <div *ngIf="questions.search === 'true'">
+            <p>Введите пример того, что пользователю нужно будет найти</p>
+            <div class="form-group animated zoomIn">
+            <textarea [(ngModel)]="questions.exampleSearch" name="exampleSearch" class="form-field" placeholder="Пример"></textarea>
+            </div>
+        </div>
+        <p>На сайте есть контактная информация?</p>
+            <ul>
+                <li>
+                    <input type="radio" name="haveInfo" [value]="true" (change)="fieldSelect($event)">
+                    <label class="radio-icon">Да</label>
+                    <div class="bullet">
+
+                    </div>
+                </li>
+                <li>
+                    <input type="radio" name="haveInfo" [value]="false" (change)="fieldSelect($event)">
+                    <label class="radio-icon">Нет</label>
+                    <div class="bullet">
+                    </div>
+                </li>
+            </ul>
+            <br>
+        <button type="submit" class="Further" (click)="continue(3)">Далее</button>
+    </div>
+    <div *ngIf="pageNumber === 3">
+        <div *ngIf="questions.haveInfo === 'true'">
+            <p>Что пользователь будет искать на сайте:</p>
+            <div class="form-group animated zoomIn">
+                <input [(ngModel)]="clientCheckbox" name="checkbox" class="form-field" placeholder="Добавьте свой вариант"/>
+            </div>
+            <br>
+            <button class="Further" (click)="addCheckbox()">Добавить</button>
+            <br><br>
+            <div class="checkbox-flex">
+                <div *ngFor="let checkbox of allCheckboxs; let i = index">
+                    <label>
+                        <input type="checkbox" class="option-input checkbox" [value]="checkbox" name="checkbox" (change)="fieldSelect($event)"/>
+                        {{checkbox}}
+                      </label>
+                </div>
+            </div>
+            <br>
+        </div>
+        <p>Введите дополнительное тестовое задание:</p>
+        <div class="form-group animated zoomIn">
+        <textarea [(ngModel)]="questions.additionalTestTask" name="additionalTestTask" class="form-field" placeholder="Тестовое задание"></textarea>
+        </div>
+        <button type="submit" class="Further" (click)="continue(4)">Далее</button>
+    </div>
+    <div *ngIf="pageNumber === 4">
+        <p>Введите дополнительные вопросы, на которые ответит пользователь:</p>
+        <br>
+        <p>1. </p>
+        <div class="form-group animated zoomIn">
+            <input [(ngModel)]="questions.firstAdditionalQuestion" name="firstAdditionalQuestion" class="form-field" placeholder="Добавьте вопрос"/>
+        </div>
+        <br>
+        <p>2. </p>
+        <div class="form-group animated zoomIn">
+            <input [(ngModel)]="questions.secondAdditionalQuestion" name="secondAdditionalQuestion" class="form-field" placeholder="Добавьте вопрос"/>
+        </div>
+        <br>
+        <button type="submit" class="Further" (click)="submit(1)">Далее</button>
+    </div>
+    
+</form>
+</div>

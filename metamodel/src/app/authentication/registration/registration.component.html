@@ -1,0 +1,43 @@
+
+<div class="register-form">
+    <p class="register-form-title">Регистрация: </p>
+    <div class="register-form-flex">
+        <p>Введите логин: </p>
+        <div class="form-group animated zoomIn">
+            <input [(ngModel)]="registerData.login" name="login" class="form-field" placeholder="Логин">
+        </div>
+        <br>
+        <p>Введите Ваше имя: </p>
+        <div class="form-group animated zoomIn">
+            <input [(ngModel)]="registerData.name" name="name" class="form-field" placeholder="Имя">
+        </div>
+
+        <p>Введите тип прав:</p>
+        <div class="select2 animated zoomIn">
+            <label>
+                <input type="checkbox" name="placeholder" required>
+                <i class="toggle icon icon-plus"></i>
+                <i class="toggle icon icon-minus"></i>
+                <span class="placeholder">Choose...</span>
+                <label class="option">
+                    <input type="radio" name="option" value="client" (change)="checkRegisterType($event)">
+                    <span class="title animated fadeIn"><i class="icon icon-user"></i>Клиент</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="option" value="user" (change)="checkRegisterType($event)">
+                    <span class="title animated fadeIn"><i class="icon icon-bulb"></i>Тестировщик</span>
+                </label>
+            </label>
+        </div>
+        
+        <p>Введите пароль:</p>
+        <div class="form-group animated zoomIn">
+            <input [(ngModel)]="registerData.password" name="password" class="form-field" placeholder="Пароль">
+        </div>
+        <p>Повторите пароль:</p>
+        <div class="form-group animated zoomIn">
+            <input [(ngModel)]="checkPassword" name="password" class="form-field" placeholder="Пароль">
+        </div>
+        <button class="Further" type="submit" (click)="submit()">Зарегистрироваться</button>
+    </div>
+</div>

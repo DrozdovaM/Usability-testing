@@ -1,0 +1,18 @@
+<div class="register">
+    <div class="register-form">
+        <p class="register-form-title">Вход: </p>
+        <div class="register-form-flex">
+            <p>Введите логин: </p>
+            <div class="form-group animated zoomIn">
+                <input [(ngModel)]="authenticationData.login" name="login" class="form-field" placeholder="Логин">
+            </div>
+            <br>
+            <p>Введите пароль:</p>
+            <div class="form-group animated zoomIn">
+                <input [(ngModel)]="authenticationData.password" name="password" class="form-field" placeholder="Пароль">
+            </div>
+            <button class="Further" type="submit">Войти</button>
+        </div>
+        <p style="text-align: center;">Если у вас еще нет аккаунта, <a routerLink="/registration">зарегистрируйтесь</a></p>
+    </div>
+</div>

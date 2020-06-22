@@ -1,0 +1,19 @@
+<nav role="navigation" class="primary-navigation">
+    <ul>
+        <li>
+            <a routerLink="view">{{title}}</a>
+            <ul class="dropdown">
+                <li>
+                    <a href="#">Личный кабинет</a>
+                </li>
+                <li>
+                    <a routerLink="/authentication">Выход</a>
+                </li>
+            </ul>
+        </li>
+        <li><a routerLink="new-test">Новый тест</a></li>
+        <li><a routerLink="result-tests">Результаты</a></li>
+    </ul>
+</nav>
+
+<router-outlet></router-outlet>

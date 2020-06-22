@@ -1,0 +1,8 @@
+<div class="buttons">
+    <div *ngFor="let test of clientsTests">
+        <button class="Further" (click)="navigationTestForm(test)">
+            <span>{{test.url}}</span>
+        </button>
+    </div>
+</div>
+<router-outlet></router-outlet>

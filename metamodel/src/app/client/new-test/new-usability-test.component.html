@@ -1,0 +1,9 @@
+<div class="flex-form">
+    <div *ngIf="checkUrl()" class="button_cont">
+        <a routerLink="form" class="example_f">
+            <span>{{startTestingTittle}}</span>
+        </a>
+    </div>
+    <router-outlet></router-outlet>
+</div>
+
